@@ -1,0 +1,9 @@
+spring:
+  #Configure thymeleaf to get html from source instead of target
+  #This allows for immediate testing of changes
+  thymeleaf:
+    prefix: file:src/main/resources/templates/
+    cache: false
+
+  resources:
+    static-locations: file:src/main/resources/static/
