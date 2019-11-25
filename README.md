@@ -7,6 +7,6 @@ Java Guidelines
 
 Commit Guidelines
 
-This commit ...
-... ist die commit message
-Beispiel : This commit (Added some class)
+This commit ...  
+... ist die commit message  
+Beispiel : This commit (Added some class)  
