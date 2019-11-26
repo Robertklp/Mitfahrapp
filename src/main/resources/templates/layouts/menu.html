@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="menuLayout(content)">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script th:src="@{/js/sidebar.js}"></script>
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+    <title th:text="${title}">Page title</title>
+</head>
+<body>
+<div id="sidebar" class="sidebar">
+    <div class="d-flex flex-row justify-content-between menu-header align-items-center">
+        <h5>Mitfahr App</h5>
+        <a href="javascript:void(0)" onclick="closeNav()" class="fas fa-angle-left text-right closebtn"></a>
+    </div>
+    <th:block th:each="menuItem : ${menu.getItems()}">
+        <a th:href="${menuItem.href}">
+            <i th:class="${'fas ' + menuItem.fontAwesomeIcon}"></i>
+            <span th:text="${menuItem.text}">MenuItem</span>
+        </a>
+    </th:block>
+</div>
+
+
+
+    <div id="main">
+        <div id="top-menu" class="sticky-top d-flex flex-row align-items-center justify-content-between">
+            <h5><a href="javascript:void(0)" onclick="openNav()" class="fas fa-bars openbtn"></a></h5>
+            <h3 th:text="${title}">Page title</h3>
+            <div class="d-flex flex-row profile align-items-center">
+                <!-- This block is for info in top bar on the right side. currently not used -->
+            </div>
+        </div>
+        <div th:replace="${content}">
+        </div>
+    </div>
+</div>
+</body>
+</html>

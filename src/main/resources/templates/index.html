@@ -1,19 +1,12 @@
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mitfahr App</title>
-    <link th:href="@{/css/style.css}" rel="stylesheet" />
-</head>
-<body>
-    <h1 th:text="${hello}">Placeholder if Thymeleaf is off</h1>
-<!-- JS at the bottom for faster loads -->
-<!-- jQuery library -->
-<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
-<!-- Popper JS -->
-<script th:src="@{/js/popper.min.js}"></script>
-<!-- Latest compiled JavaScript -->
-<script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
-</body>
+<!DOCTYPE html>
+<!-- use thymeleaf and then import the menu layout injecting .content elements-->
+<!-- since we define the head and body in the layout we don't need them here-->
+<html xmlns:th="http://www.thymeleaf.org"
+      th:insert="layouts/menu :: menuLayout(~{ :: .content})">
+
+<div class="content">
+    <p th:text="${hello}">Thymeleaf not working</p>
+</div>
+
 </html>
+
